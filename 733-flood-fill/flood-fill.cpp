@@ -1,8 +1,5 @@
 class Solution {
 public:
-    void ans(vector<vector<int>>& image, int sr, int sc, int color, int curr){
-
-    }
     vector<vector<int>> floodFill(vector<vector<int>>& image, int sr, int sc, int color) {
         if (image[sr][sc] == color){
             return image;
@@ -23,7 +20,6 @@ public:
         if(sr > 0 && image[sr-1][sc] == first){
             floodFill(image, sr-1,sc,color);
         }
-        // cout<<image.size();
         return image;
     }
 };
