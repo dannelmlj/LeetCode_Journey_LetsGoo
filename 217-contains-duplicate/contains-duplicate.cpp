@@ -1,13 +1,12 @@
 class Solution {
 public:
     bool containsDuplicate(vector<int>& nums) {
-        map<int,int> myMap;
-
-        for (int i=0; i<nums.size(); i++){
-            if (myMap.find(nums[i]) != myMap.end()){
+        set<int> myset;
+        for (int i=0 ; i<nums.size(); i++){
+            myset.insert(nums[i]);
+            if (myset.size() != i+1){
                 return true;
             }
-            myMap.insert({nums[i],1});
         }
         return false;
     }
