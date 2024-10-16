@@ -1,16 +1,12 @@
 class Solution:
     def findJudge(self, n: int, trust: List[List[int]]) -> int:
-        arr_given = [False] * n
-        arr_received = [0] * n
+        if n == 1:
+            return 1
+        trust_giver = {giver for giver, _ in trust} # Sets of [0] --> giver of trust
+        trust_receiver_counter = Counter(receiver for _, receiver in trust) # Counter of [1] --> receiver of trust
 
-        x = {y for y, _ in trust}
-        print(x)
-        for i in range(len(trust)):
-            arr_given[trust[i][0]-1] = True
-            arr_received[trust[i][1]-1] += 1
+        for person, trust_count in trust_receiver_counter.items():
+            if trust_count == n-1 and person not in trust_giver:
+                return person
 
-        for i in range(len(arr_received)):
-            if arr_received[i] == n-1 and arr_given[i] == False:
-                return i+1
-     
         return -1
