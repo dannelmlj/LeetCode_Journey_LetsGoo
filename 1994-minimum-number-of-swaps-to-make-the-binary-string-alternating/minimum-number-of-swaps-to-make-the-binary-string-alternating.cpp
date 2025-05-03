@@ -34,11 +34,6 @@ public:
         if (abs(countOne - countZero) > 1){
             return -1;
         }
-        // cout << countStartWithOne << endl;
-        // cout << countStartWithZero << endl;
-
-        // cout << "Count One: " << countOne << endl;
-        // cout << "Count Zero: " << countZero << endl;
 
         if (countOne > countZero){
             return countStartWithOne/2;
